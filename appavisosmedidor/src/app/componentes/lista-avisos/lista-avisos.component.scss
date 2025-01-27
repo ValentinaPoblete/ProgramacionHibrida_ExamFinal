@@ -1,0 +1,29 @@
+.list-item {
+  display: flex; /* Activa flexbox */
+  align-items: center; /* Alinea verticalmente todos los elementos */
+  justify-content: space-between; /* Distribuye los elementos horizontalmente */
+  padding: 5px; /* Espaciado interno */
+}
+
+.contenido-central {
+  flex-grow: 1; /* Ocupa todo el espacio disponible entre imagen e ícono */
+  padding-right: 10px; /* Espacio entre el contenido central y el ícono */
+}
+
+.titulo {
+  font-weight: bold; /* Título en negrita */
+  font-size: 16px;    /* Tamaño de la fuente del título */
+  margin: 0;          /* Elimina márgenes extra */
+}
+
+.fecha {
+  font-size: 12px;    /* Tamaño más pequeño para la fecha */
+  color: gray;        /* Color gris para la fecha */
+  margin: 10px;          /* Elimina márgenes extra */
+}
+
+.imagen-preview {
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: cover;
+  }

@@ -1,0 +1,15 @@
+<ion-list>
+  <ion-item *ngFor="let aviso of avisos" class="list-item">
+
+    <ion-img *ngIf="aviso.imagen" [src]="'data:image/jpeg;base64,' + aviso.imagen" class="imagen-preview"></ion-img>
+
+    <ion-label class="contenido-central">      
+      <h2 class="titulo">{{ aviso.titulo }}</h2>
+    </ion-label>
+
+    <span class="fecha">{{ aviso.fecha | date: 'yyyy-MM-dd' }}</span>
+
+    <ion-icon name="trash-sharp" color="danger" (click)="eliminarAviso.emit(aviso.id)"></ion-icon>
+
+  </ion-item>
+</ion-list>

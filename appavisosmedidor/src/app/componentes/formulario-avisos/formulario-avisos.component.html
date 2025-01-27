@@ -1,0 +1,45 @@
+<form (ngSubmit)="onSubmit()" #avisoForm="ngForm">  
+  <ion-item>
+    <ion-label position="floating">Título</ion-label>
+    <ion-input [(ngModel)]="aviso.titulo"
+    required="required"
+    minlength="5"
+    name="tituloInput"
+    #tituloInput="ngModel" />
+    <div *ngIf="tituloInput.invalid && tituloInput.touched">
+      <ion-text color="danger">
+        <p *ngIf="tituloInput.errors?.['required']">El título es obligatorio.</p>
+        <p *ngIf="tituloInput.errors?.['minlength']">El título debe tener al menos 5 caracteres.</p>
+      </ion-text>
+    </div>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Descripción</ion-label>
+    <ion-textarea [(ngModel)]="aviso.descripcion"
+    required="required"
+    minlength="20"
+    name="descInput"
+    #descInput="ngModel" />
+    <div *ngIf="descInput.invalid && descInput.touched">
+      <ion-text color="danger">
+        <p *ngIf="descInput.errors?.['required']">La descripción es obligatoria.</p>
+        <p *ngIf="descInput.errors?.['minlength']">La descripción debe tener al menos 20 caracteres.</p>
+      </ion-text>
+    </div>
+  </ion-item>
+
+  <ion-item>
+    <ion-button (click)="tomarFoto()" slot="start" color="medium" size="small">
+      <ion-icon name="camera-outline" slot="start"></ion-icon>
+      FOTOGRAFÍA
+    </ion-button>
+
+    <ion-item *ngIf="aviso.imagen" side="end">
+      <ion-img [src]="'data:image/jpeg;base64,'+aviso.imagen" class="imagen-preview" ></ion-img>
+    </ion-item>
+  </ion-item>
+
+  <ion-button [disabled]="avisoForm.invalid" shape="round" type="submit" size="small">GUARDAR</ion-button>
+  
+</form>
